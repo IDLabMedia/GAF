@@ -1,0 +1,92 @@
+data: imagenet
+mode: latent
+ckpt: weights/gaf_dit_sd15_imagenet_256_1152_28_16_p2_allclasses_1000K_retrunk_ckpt_ema_it0100000.pt
+
+gen_dir: gen/gaf_imagenet256
+
+num_train_classes: 1000
+
+# Mode: precompute vs train
+precompute: false
+
+# Device / IO
+device: cuda
+seed: 0
+outdir: ./runs/gaf_dit_sd15_imagenet256_1152_28_16_p2_allclasses_1000K_retrunk_vectorized_v2
+log_every: 500
+
+# Data or Latents path
+data_path: ../imagenet256
+loc_synset_mapping: ./imagenet/LOC_synset_mapping.txt
+image_size: 256
+encode_batch_size: 32
+latent_cache: "../FINALRUNS_BKP/latent/imagenet256_sd15_mean_bf16_latents_deterministic_bicubic.pt"
+class_names_json: ./imagenet_class_names.json
+class_list: null # load it from file
+resume_path: ./gaf_dit_sd15_imagenet_256_1152_32_24_p2_v2_allclasses_1000K_v21/final_state.pt
+num_classes: 1000
+
+#retrunk
+trunk_ckpt: weights/DiT-XL-2-256x256.pt
+skip : ["final_layer"] # Trunk layer not to populate.
+freeze: false
+
+# VAE
+"vae_model": stabilityai/sd-vae-ft-mse
+vae_scale: 0.18215
+
+# Model (DiT)
+latent_ch: 4
+dit_hidden: 1152
+dit_depth: 28
+dit_heads: 16
+patch_size: 2
+mlp_ratio: 4.0
+
+# Train Hyperparameters
+batch: 2
+accum_steps: 1
+workers: 16
+iters: 100000
+lr: 1.0e-4
+warmup_steps: 0
+betas: [0.9, 0.99]
+weight_decay: 0.0
+grad_clip: 0.0
+
+# Runtime / Optimization
+bf16: true
+channels_last: true
+pin_memory: true
+non_blocking: true
+compile: false
+
+# Loss / time sampling
+t_eps: 1.0e-3
+res_reg: 0.0001
+lam_time: 0.0001
+
+# EMA
+use_ema: true
+ema_decay_warm: 0.999
+ema_decay_main: 0.9999
+ema_decay_steps: 20000
+
+# Sampling / preview
+preview_every: 1000
+checkpoint_every: 50000
+preview_nfe: 20       
+preview_chunk: 4
+preview_H: 256
+preview_W: 256
+preview_k_per_iter: 4  
+
+# Balanced sampling
+classes_per_batch: 4
+reshuffle_each_epoch: 1
+
+# --- W&B ---
+use_wandb: true
+wandb_project: gaf-ImageNet256
+wandb_run_name: H200-ImageNet-VectorizedExp
+wandb_tags: [H200, ImageNet, VectorizedExp]

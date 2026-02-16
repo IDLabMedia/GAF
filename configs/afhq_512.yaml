@@ -1,0 +1,83 @@
+data: afhq
+mode: latent
+ckpt: weights/gaf_dit_sd15_afhq_512_1152_28_16_p2_ckpt_ema_it0100000.pt
+
+# for image-to-image translation ablation 
+ckpt_noswap_nores: weights/gaf_dit_sd15_afhq_512_1152_28_16_p2_vectorized_noswap_nores_ablation_vectorized_v1_checkpoint_ema_it0100000.pt
+
+gen_dir: gen/gaf_afhq512_gen
+
+num_train_classes: 3
+
+# Mode: precompute vs train
+precompute: false
+
+# Device / IO
+device: cuda
+seed: 0
+outdir: ./runs/gaf_dit_sd15_afhq_512_1152_28_16_p2_v14
+log_every: 500
+
+# Data or Latents path
+data_path: ./stargan-v2/data/afhq
+image_size: 512
+encode_batch_size: 128 
+latent_cache: ./latents_afhq512_sd15_mean_bf16_latents_determnistic_bicubic.pt
+resume_path: ./runs/gaf_dit_sd15_afhq_512_1152_28_16_p2_v14/final_state.pt
+labels_file: ./labels_afhq512.txt  # 0=cat,1=dog,2=wild
+num_classes: 3
+
+# VAE
+vae_model: "stabilityai/sd-vae-ft-mse" 
+vae_scale: 0.18215
+
+# Model (DiT)
+latent_ch: 4
+dit_hidden: 1152
+dit_depth: 28
+dit_heads: 16
+patch_size: 2
+mlp_ratio: 4.0
+
+# Train Hyperparameters
+batch: 16
+accum_steps: 1
+workers: 16
+iters: 100000
+lr: 1.0e-4
+warmup_steps: 10000
+betas: [0.9, 0.99]  
+weight_decay: 0.02  
+grad_clip: 1.0
+
+# Runtime / Optimization
+bf16: true
+channels_last: true
+pin_memory: true
+non_blocking: true
+compile: true
+
+# Loss / time sampling
+t_eps: 1.0e-3
+res_reg: 0.003
+lam_time: 0.002
+
+# EMA
+use_ema: true
+ema_decay_warm: 0.999
+ema_decay_main: 0.9999
+ema_decay_steps: 20000
+
+# Sampling / preview
+preview_every: 1000
+checkpoint_every: 100000
+preview_nfe: 20
+preview_chunk: 4
+preview_H: 512
+preview_W: 512
+
+# W&B
+use_wandb: true
+wandb_project: gaf-afhq512
+wandb_run_name: H200-AFHQ-VectorizedExp
+wandb_tags: [H200, AFHQ, VectorizedExp]

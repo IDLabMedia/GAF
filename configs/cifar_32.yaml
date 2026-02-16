@@ -1,0 +1,69 @@
+data: cifar
+mode: pixel
+ckpt: weights/gaf_dit_cifar_32_768_12_12_p2_ckpt_ema_it0100000.pt
+
+gen_dir: gen/gaf_cifar_gen
+
+num_train_classes: null
+device: cuda
+seed: 42
+outdir: ./runs/gaf_dit_cifar10_32_768_12_12_p2_v11
+log_every: 500
+
+data_root: ./data
+image_size: 32
+use_labels: true
+num_classes: 10
+resume_path: ./runs/gaf_dit_cifar10_32_768_12_12_p2_v11/final_state.pt
+
+# Model (DiT)
+latent_ch: 3
+dit_hidden: 768
+dit_depth: 12
+dit_heads: 12
+patch_size: 2
+mlp_ratio: 4.0
+
+# Train Hyperparameters
+batch: 16
+accum_steps: 1
+workers: 4
+iters: 30 #100000
+lr: 2.0e-4
+warmup_steps: 500
+betas: [0.9, 0.99]
+weight_decay: 0.0
+grad_clip: 0.0
+
+# Runtime / Optimization
+bf16: true
+channels_last: true
+pin_memory: true
+non_blocking: true
+compile: false
+
+# Loss / time sampling
+t_eps: 1.0e-3
+res_reg: 0.003 
+lam_time: 0.002
+
+    # EMA:
+use_ema: true
+ema_decay_warm: 0.999
+ema_decay_main: 0.9995
+ema_decay_steps: 5000
+
+# Sampling / preview
+preview_every: 1000
+preview_nfe: 20 
+checkpoint_every: 1000
+preview_steps: 20 
+preview_H: 32
+preview_W: 32
+preview_k_per_iter: 4  
+
+# W&B
+use_wandb: true
+wandb_project: GAF-CIFAR10
+wandb_run_name: H200-CIFAR10-VectorizedExp
+wandb_tags: [H200, CIFAR10, VectorizedExp]
