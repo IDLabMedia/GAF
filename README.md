@@ -1,4 +1,4 @@
-# Generative Anchored Fields: Controlled Data Generation via Emergent Velocity Fields Endpoint Operators and Transport Algebra (GAF)
+# Generative Anchored Fields: Controlled Data Generation via Emergent Velocity Fields and Transport Algebra (GAF)
 
 Deressa Wodajo, Hannes Mareen, Peter Lambert, Glenn Van Wallendael
 
