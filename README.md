@@ -95,7 +95,7 @@ Example:
     *Note: Depending on your batch size, setting iters between 20,000 and 100,000 is sufficient to generate high-quality images (we used 100,000 iterations).*
 
     ```bash
-      python train.py --data imagenet --image_size 256 --mode retrunk
+      python train.py --data imagenet --image_size 256 --retrunk
     ```
 3. To resume training
 
