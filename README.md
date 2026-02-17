@@ -246,7 +246,7 @@ custom - custom mask image from disk
 
 ---
 
-## <a id="metrics"></a>Metrics & Cyclic Transport
+## <a id="metrics"></a>Metrics & Cyclic Transport (Stress Test GAF)
 
 ### Cyclic Interpolation
 Smooth cyclic interpolation through K-heads and a shared J-head, returning to start:
