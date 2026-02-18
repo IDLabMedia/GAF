@@ -2,6 +2,21 @@
 
 Deressa Wodajo, Hannes Mareen, Peter Lambert, Glenn Van Wallendael
 
+<figure>
+  <img src="assets/output-grid.png" width=1000 align=center alt="GAF image generation process"/>
+  <figcaption>GAF trained on ImageNet</figcaption>
+</figure>
+<br clear=all>
+
+This repository contains the implementation code for **Generative Anchored Fields: Controlled Data Generation via Emergent Velocity Fields and Transport Algebra (GAF)** paper. 
+Find the full paper on [arXiv ](https://arxiv.org/abs/2511.22693).
+
+
+<p style="text-align: justify;">
+GAF introduces algebraic compositionality to generative models. Instead of learning implicit class relationships, GAF provides explicit, mathematically guaranteed control over class composition through independent K-heads anchored to a shared origin J.
+</p>
+
+
 <br clear=all />   
 <p align="center">
   <img src="assets/output_github.gif" width=1000 align=left alt="GAF image generation process">
@@ -9,21 +24,6 @@ Deressa Wodajo, Hannes Mareen, Peter Lambert, Glenn Van Wallendael
 
 <br clear=all />
 <br clear=all />
-
-This repository contains the implementation code for **Generative Anchored Fields: Controlled Data Generation via Emergent Velocity Fields and Transport Algebra (GAF)** paper. Find the full paper on [arXiv ](https://arxiv.org/abs/2511.22693).
-
-<br clear=all>
-<figure>
-  <img src="assets/output-grid.png" width=1000 align=center alt="GAF image generation process"/>
-  <figcaption>GAF trained on ImageNet</figcaption>
-</figure>
-<br clear=all>
-
-<p style="text-align: justify;">
-GAF introduces algebraic compositionality to generative models. Instead of learning implicit class relationships, GAF provides explicit, mathematically guaranteed control over class composition through independent K-heads anchored to a shared origin J.
-</p>
-
-
 
 ## GAF Model Architecture
 
