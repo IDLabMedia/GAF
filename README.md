@@ -6,7 +6,10 @@ Deressa Wodajo, Hannes Mareen, Peter Lambert, Glenn Van Wallendael
   <img src="assets/output-grid.png" width=1000 align=center alt="GAF image generation process"/>
   <figcaption align=center>GAF trained on ImageNet</figcaption>
 </figure>
+
 <br clear=all>
+<br clear=all>
+
 This repository contains the implementation code for **Generative Anchored Fields: Controlled Data Generation via Emergent Velocity Fields and Transport Algebra (GAF)** paper. 
 Find the full paper on [arXiv ](https://arxiv.org/abs/2511.22693).
 
