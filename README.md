@@ -35,12 +35,10 @@ GAF introduces algebraic compositionality to generative models. Instead of learn
 
 The **GAF** model consists of a **Trunk** and two twin networks, **J (Noise Anchor)** and **K (Data Anchor)**.
 
-Each K-head is an independent linear projection. Blending K-heads = blending endpoints in latent space. **Algebriac, not approxiamte.**
+Each K-head is an independent linear projection. Blending K-heads = blending endpoints in latent space.
 
 
 The code in this repository enables training and testing of the GAF model for image generation.
-
-**Note:** This repository contains code from ongoing research. We are not accepting external contributions at this time.
 
 ## Table of Contents
 
