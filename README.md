@@ -405,7 +405,7 @@ $
 
 where $mask2 = 1 - mask1$
 
-* $v_{\mathrm{512}}|_{mask1}$: Velocity towards class 512 (restricted to mask1 region).
+* $\`v_{\mathrm{512}}|_{mask1}$: Velocity towards class 512 (restricted to mask1 region).\`$
 * $v_{\mathrm{985}}|_{mask2}$: Velocity towards class 985 (restricted to mask2 region).
 
 $
