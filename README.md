@@ -126,7 +126,7 @@ To generate images using the trained GAF model, follow these steps:
 | CIFAR-10  | 32x32             | 9.53    |[GAF-CIFAR-B/2](https://huggingface.co/Deressa/GAF/blob/main/gaf_dit_cifar_32_768_12_12_p2_ckpt_ema_it0100000.pt)     |
 | AFHQ      | 512x512           | --      |[GAF-AFHQ-XL/2](https://huggingface.co/Deressa/GAF/blob/main/gaf_dit_sd15_afhq_512_1152_28_16_p2_ckpt_ema_it0100000.pt)     |
 | CelebA-HQ | 256x256           | 7.27    |[GAF-CelebA-XL/2](https://huggingface.co/Deressa/GAF/blob/main/gaf_dit_sd15_celeba_256_1152_28_16_p2_ckpt_ema_it0100000.pt.pt)   |
-| ImageNet  | 256x256           | 7.51    |[GAF-ImageNet-XL/2](https://huggingface.co/Deressa/GAF/blob/main/gaf_dit_sd15_imagenet_256_1152_28_16_p2_allclasses_1000K_retrunk_ckpt_ema_it0100000.pt) |
+| ImageNet  | 256x256           | 7.28 (new)    |[GAF-ImageNet-XL/2](https://huggingface.co/Deressa/GAF/blob/main/gaf_dit_sd15_imagenet_256_1152_28_16_p2_allclasses_1000K_retrunk_ckpt_ema_it0100000.pt) |
 
 ### Pure Class Generation
 ```bash
